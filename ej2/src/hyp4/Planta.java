@@ -8,7 +8,13 @@ public class Planta extends Empleado{
 		salario = s;
 		anosAntiguedad = aa;
 	}
-	public int pagarSalario() {
-		return salario;
+	public void enviarSalario() {
+		float c = this.calculoSalario();
+		salarioTotalganado = salarioTotalganado + c;
+	}
+	public float calculoSalario() {
+			int bonus = anosAntiguedad*300;
+			float s = bonus + salario;
+			return s;
 	}
 }

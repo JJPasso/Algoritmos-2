@@ -1,6 +1,7 @@
 package hyp4;
 
-public class Empleado extends Persona {
+public abstract class Empleado extends Persona {
+	float salarioTotalganado;
 	int codigoEmpleado;
 	int horasExtras;
 	String companiaseguro;
@@ -10,7 +11,6 @@ public class Empleado extends Persona {
 		horasExtras = he;
 		companiaseguro = cs;
 	}
-	public int enviarSalario() {
-		 return salario;
-	}
+	public abstract void enviarSalario();
+	public abstract float calculoSalario();
 }
