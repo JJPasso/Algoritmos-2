@@ -1,12 +1,28 @@
 package hyp7;
 import ej12.Fecha;
-public class AutoMediano extends Automovil<Fecha> {
-	public AutoMediano(int p,String m,Fecha f) {
-		patente = p;
-		vencimientopatente = f;
-		marca = m;
+public class AutoMediano extends Automovil {
+	private Fecha vencimientopatente;
+	private Fecha actual;
+	public Fecha getVencimientopatente() {
+		return vencimientopatente;
 	}
-	public boolean Habilitar(Fecha ff) {
-		return (ff.esMayor(vencimientopatente,ff));
+	public void setVencimientopatente(Fecha vencimientopatente) {
+		this.vencimientopatente = vencimientopatente;
+	}
+	public Fecha getActual() {
+		return actual;
+	}
+	public void setActual(Fecha actual) {
+		this.actual = actual;
+	}
+	public AutoMediano(int p,String m,Fecha v,Fecha actual) {
+		patente = p;
+		vencimientopatente = v;
+		marca = m;
+		this.actual = actual;
+	}
+	public boolean Habilitar() {
+		Permiso pm = new Permiso(vencimientopatente,actual);
+		return pm.Permisoautomediano();
 		}
 }
