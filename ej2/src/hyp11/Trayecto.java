@@ -11,22 +11,21 @@ public class Trayecto extends Viaje {
 		MaximoPasajeros = mp;
 	}
 	public float TiempodeDemora() {
-		float r;
+		float r = 0;
 		if (tv.esDiesel(tv)) {
 			r = (((Distancia*CantidadEstaciones)/2)+(CantidadEstaciones/10)+(MaximoPasajeros/10));
-			return r;
-		}else {
-			if (tv.esElectrico(tv)) {
-				 r = ((Distancia*CantidadEstaciones)/2);
-				return r;
-		}else {
-			if (tv.esAltavelocidad(tv)) {
-				 r = (Distancia/10);
-				return r;
+			
 		}
-	}
-	
-}
+		if (tv.esElectrico(tv)) {
+			r = ((Distancia*CantidadEstaciones)/2);
+			
+		}
+		if (tv.esAltavelocidad(tv)) {
+				 r = (Distancia/10);
+				
+			}
+		return r;
+		}
 }
 
-}
+
