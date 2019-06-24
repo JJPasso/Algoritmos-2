@@ -1,10 +1,10 @@
 package interface4;
 
-public class ListaOrdenada<T> implements Comparable<T>{
+public class ListaOrdenada<T> {
 	 
     //Atributos
-    private Nodo<T> primero;
-    private Nodo<T> ultimo;
+    private Nodo<T extends Comparable> primero;
+    private Nodo<T extends Comparable> ultimo;
     private int tamanio;
  
     public ListaOrdenada() {

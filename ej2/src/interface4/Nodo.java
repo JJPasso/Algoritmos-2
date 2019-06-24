@@ -1,6 +1,6 @@
 package interface4;
 
-public class Nodo<T> implements Comparable<T>{
+public class Nodo<T extends Comparable<T>> implements Comparable<Nodo<T>> {
     
     private T dato;
     private Nodo<T> siguiente;
@@ -30,15 +30,9 @@ public class Nodo<T> implements Comparable<T>{
         this.siguiente=siguiente;
         dato = t;
     }
-    public int compareTo(T t)
-    {
-    int resultado=0;
-    if(this.dato>t){resultado=1;}
-    else if(this.dato<t){resultado=-1;}
-    else {resultado=0;}
-    
-    return resultado;
-    }
+    public int compareTo(Nodo<T> n2) {
+    	return this.dato.compareTo(n2.dato);
+    	}
      
     public T getDato() {
         return dato;

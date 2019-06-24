@@ -1,28 +1,9 @@
 package Generics;
 
-class Par<A, B> implements Comparable<Par<A,B>>
+class Par<A extends Comparable<A>, B extends Comparable<B>> implements Comparable<Par<A,B>>
 {
-	public A primero;   //  primer
-	public B segundo;  	// segundo
-	public A getPrimero() {
-		return primero;
-	}
-
-
-	public void setPrimero(A primero) {
-		this.primero = primero;
-	}
-
-
-	public B getSegundo() {
-		return segundo;
-	}
-
-
-	public void setSegundo(B segundo) {
-		this.segundo = segundo;
-	}
- 
+	public A primero;   //  primeror
+	public B segundo;  	// segundo 
 
 	
 	public Par(A primero, B segundo)
@@ -30,8 +11,13 @@ class Par<A, B> implements Comparable<Par<A,B>>
 		this.primero = primero;
 		this.segundo = segundo;
 	}
-
+    public A getPrimero() {
+    	return this.primero;
+    }
 	
+    public B getSegundo() {
+    	return this.segundo;
+    }
 	// Checks specified object is "equal to" current object or not
 	public boolean equals(Par<String,Integer> o)
 	{
@@ -53,7 +39,8 @@ class Par<A, B> implements Comparable<Par<A,B>>
 	public int hashCode()
 	{
 		// use hash codes of the underlying objects
-		return 31 * primero.hashCode() + segundo.hashCode();
+		int hash = 31 * ((primero == null) ? 0 : primero.hashCode());
+		return 31 * hash + ((segundo == null) ? 0 : segundo.hashCode());
 	}
 
 	@Override
@@ -63,47 +50,35 @@ class Par<A, B> implements Comparable<Par<A,B>>
 	}
 
 	// Factory method for creating a Typed Par immutable instance
-	public static <C, D> Par <C, D> of(C a, D b)
+	/*public static <C, D> Par <C, D> of(C a, D b)
 	{
 		// calls private constructor
 		return new Par<>(a, b);
-	}
+	}*/
 
 	@Override
-	public int compareTo(Par<A, B> o) {
-		if( this.equals(o) ) {
-			return 0;
-		}
-		return -1;
+	public int compareTo(Par<A, B> par) {
+		int compare1 = this.getPrimero().compareTo(par.getPrimero());
+		int compare2 = this.getSegundo().compareTo(par.getSegundo()); 
+	    
+		if( compare1  < 0 ) {
+			System.out.println(this.getPrimero()+" < "+par.getPrimero()); 
+    		return -1;
+    	}
+		if( compare1  > 0 ) {
+			System.out.println(this.getPrimero()+" > "+par.getPrimero()); 
+    		return 1;
+    	}
+	    if(( compare1  == 0 ) && ( compare2 == 0)) {
+			System.out.println(this.getPrimero()+" == "+par.getPrimero()); 
+    		return 0;
+	    }
+	    
+		if ((compare1 == 0) && (compare2 > 0)) {
+			System.out.println(this.getPrimero()+" == "+par.getPrimero()); 
+			System.out.println(this.getSegundo()+" == "+par.getSegundo()); 
+			return 1;
+		};
+		return compare2;
 	}
-		// TODO Auto-generated method stub
-        /* 
-		if(this.primero < o.primero) {
-			if(this.segundo < o.segundo)
-				return -1;
-		}
-		if(this.primero == o.primero) {
-			if(this.segundo == o.segundo) {
-				return 0;
-			} else {
-				if(this.segundo < o.primero) {
-					return -1;
-				}
-				return 1;
-			}
-			
-		}
-		if(this.primero > o.primero) {
-			if(this.segundo > o.segundo) {
-				return 1;
-			} else {
-				if(this.segundo == o.primero) {
-					return 0;
-				}
-				return -1;
-			}
-		}
-		
-	}
-	*/
 }
