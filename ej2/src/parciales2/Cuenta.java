@@ -3,25 +3,20 @@ package parciales2;
 import java.util.ArrayList;
 
 public class Cuenta {
-	private ArrayList<Cliente> Clientes;
 	private ArrayList<Mesa> Mesasocupadas;
-	private static int proximoCodigo = 0;
 	private int id;
+	private static int codigocuenta = 0;
 	private boolean CuentaAbierta;
 	ArrayList<Pedido> Pedidos;
-	public Cuenta(Cliente primercliente,Mesa primermesa) {
-		Clientes = new ArrayList<Cliente>();
+	public Cuenta() {
 		Mesasocupadas = new ArrayList<Mesa>();
 		CuentaAbierta = true;
 		Pedidos = new ArrayList<Pedido>();
-		id = proximoCodigo;
-		proximoCodigo++;
+		id = codigocuenta;
+		codigocuenta++;
 	}
 	public int getId() {
 		return id;
-	}
-	public int cantidaddeComensales() {
-		return (Clientes.size());
 	}
 	public void OcuparUnaMesaMas(Mesa x) {
 		Mesasocupadas.add(x);
@@ -29,9 +24,7 @@ public class Cuenta {
 	public boolean esCuentaAbierta() {
 		return CuentaAbierta;
 	}
-	public void AgregarClienteaCuenta(Cliente c) {
-		Clientes.add(c);
-	}
+	
 	public void Generarpedido(Pedido p){
 		Pedidos.add(p);
 	}
@@ -58,7 +51,6 @@ public class Cuenta {
 	}
 	public void Cerrarcuenta() {
 		CuentaAbierta=false;
-		Clientes.clear();
 		Pedidos.clear();
 		Mesasocupadas.clear();
 	}

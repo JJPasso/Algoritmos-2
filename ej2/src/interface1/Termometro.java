@@ -6,7 +6,7 @@ public class Termometro implements Medible {
 	private int decremento;
 	private boolean turno; // true = incremento, false = decremento
 	
-	public void setTermometro(int k)throws IllegalArgumentException{
+	public void setTermometro(int k) throws IllegalArgumentException{
 		if (k >= -273) {
 			if (temperatura < k) {
 				turno = true;

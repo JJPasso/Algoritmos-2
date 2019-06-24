@@ -1,5 +1,5 @@
 package parciales2;
 
-public class Comida extends Producto{
+public abstract class Comida extends Producto implements Enviable{
 
 }

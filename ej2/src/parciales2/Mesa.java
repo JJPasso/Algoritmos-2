@@ -1,10 +1,11 @@
 package parciales2;
 
-public class Mesa extends Idmesa{
+public class Mesa {
 	int id;
 	boolean esExterior;
 	boolean ocupada;
 	int capacidad;
+	static int codigomesa;
 	public Mesa(boolean e,int cap) {
 		id = codigomesa;
 		codigomesa++;
@@ -14,5 +15,8 @@ public class Mesa extends Idmesa{
 	}
 	public boolean esExterior() {
 		return (esExterior);
+	}
+	public void Ocuparmesa() {
+		ocupada = true;
 	}
 }

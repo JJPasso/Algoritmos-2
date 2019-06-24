@@ -27,7 +27,7 @@ public class CuentaBancaria implements Medible{
 	}
 	public boolean incremento(float x) {
 		deposito(x);
-		return true;
+		return false;
 	}
 	public boolean decremento(float x) {
 		double c = extraccion(x);

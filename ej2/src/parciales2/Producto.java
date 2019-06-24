@@ -1,8 +1,8 @@
 package parciales2;
 
-public abstract class Producto {
-	String nombre;
-	int importe;
+public abstract class Producto implements Facturable{
+	protected String nombre;
+	protected int importe;
 	public String getNombre() {
 		return nombre;
 	}
