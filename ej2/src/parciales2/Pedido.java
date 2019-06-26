@@ -14,7 +14,12 @@ public class Pedido {
 		codigopedido++;
 		esCancelable = false;
 	}
-	public int getImporte() {
+	public void Mostrarpedido() {
+		for (Facturable x : Productos) {
+			System.out.println("nombre :"+ x.getNombre() + "importe: " + x.Obtenerimporte());
+		}
+	}
+	public int calcularImporte() {
 		return importe;
 	}
 	public int getId() {
@@ -22,6 +27,7 @@ public class Pedido {
 	}
 	public void agregarProducto(Facturable d) {
 		Productos.add(d);
+		importe += d.Obtenerimporte();
 	}
 	public void removerProducto(Facturable d) {
 		Productos.remove(d);

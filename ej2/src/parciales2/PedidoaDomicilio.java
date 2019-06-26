@@ -12,15 +12,13 @@ public class PedidoaDomicilio extends Pedido{
 		importe = 0;
 		domicilio = d;
 	}
-	public void pedirProducto(Comida p) {
-		Productos.add(p);
-		importe += p.getImporte();
-	}
+	
 	public int calcularImporte() {
-		return (importe += (importe*0.20));
+		return (int) (importe + (importe*0.20));
 	}
 	public void agregarProducto(Enviable d) {
 		Productos.add(d);
+		importe += d.Obtenerimporte();
 	}
 	public void removerProducto(Enviable d) {
 		Productos.remove(d);

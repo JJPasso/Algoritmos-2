@@ -18,40 +18,36 @@ public class Cuenta {
 	public int getId() {
 		return id;
 	}
-	public void OcuparUnaMesaMas(Mesa x) {
-		Mesasocupadas.add(x);
-	}
-	public boolean esCuentaAbierta() {
-		return CuentaAbierta;
-	}
-	
-	public void Generarpedido(Pedido p){
-		Pedidos.add(p);
-	}
-	public boolean cancelarPedido(Pedido p) {
-		if (Pedidos.contains(p)) {
-			p.Eliminarpedido();
-			Pedidos.remove(p);
-			return true;
-		}else {
-			return false;
+	public void Pedirmesa(Mesa x)throws CuentacerradaException {
+		if (!CuentaAbierta) {
+			Mesasocupadas.add(x);
+		}else { 
+			 throw new CuentacerradaException();
 		}
 	}
-	public int calcularImporte() {
+	
+	public void Generarpedido(Pedido p)throws CuentacerradaException{
+		if (!CuentaAbierta) {
+			Pedidos.add(p);
+		}else { 
+			 throw new CuentacerradaException();
+		}
+	}
+
+	public void Imprimirticket() {
 		int r = 0;
 		for (Pedido x : Pedidos) {
 			r += x.calcularImporte();
+				x.Mostrarpedido();
 		}
 		for (Mesa x : Mesasocupadas) {
-			if (x.esExterior) {
+			if (x.esExterior()) {
 				r += (r*10);
 			}
 		}
-		return r;
+		System.out.println("el importe total es: " + r);
 	}
 	public void Cerrarcuenta() {
 		CuentaAbierta=false;
-		Pedidos.clear();
-		Mesasocupadas.clear();
 	}
 }
