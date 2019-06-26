@@ -24,13 +24,14 @@ public class Main {
 			c1.Generarpedido(p1);
 			c1.Generarpedido(p2);
 			c1.Generarpedido(p3);
+			c1.Cerrarcuenta();
+			c1.Imprimirticket();
 		}catch (NohaymesasException e) {
 			System.out.println("no hay mesas disponibles");
 		}catch (CuentacerradaException e1) {
 			System.out.println("ERROR cuenta cerrada");
 		}
-		c1.Cerrarcuenta();
-		c1.Imprimirticket();
+		
 		
 	}
 

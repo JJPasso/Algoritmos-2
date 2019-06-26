@@ -19,7 +19,7 @@ public class Cuenta {
 		return id;
 	}
 	public void Pedirmesa(Mesa x)throws CuentacerradaException {
-		if (!CuentaAbierta) {
+		if (CuentaAbierta) {
 			Mesasocupadas.add(x);
 		}else { 
 			 throw new CuentacerradaException();
@@ -27,7 +27,7 @@ public class Cuenta {
 	}
 	
 	public void Generarpedido(Pedido p)throws CuentacerradaException{
-		if (!CuentaAbierta) {
+		if (CuentaAbierta) {
 			Pedidos.add(p);
 		}else { 
 			 throw new CuentacerradaException();

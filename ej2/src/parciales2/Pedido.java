@@ -6,13 +6,12 @@ public class Pedido {
 	protected ArrayList<Facturable> Productos;
 	int importe;
 	int id;
-	protected boolean esCancelable;
 	static int codigopedido = 0;
 	public Pedido() {
 		Productos = new ArrayList<>();
 		id = codigopedido;
 		codigopedido++;
-		esCancelable = false;
+		
 	}
 	public void Mostrarpedido() {
 		for (Facturable x : Productos) {
