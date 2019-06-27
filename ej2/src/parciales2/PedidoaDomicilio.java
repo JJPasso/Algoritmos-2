@@ -14,7 +14,7 @@ public class PedidoaDomicilio extends Pedido{
 	}
 	
 	public int calcularImporte() {
-		return (int) (importe + (importe*0.20));
+		return (int) (importe*1.20);
 	}
 	public void agregarProducto(Enviable d) {
 		Productos.add(d);

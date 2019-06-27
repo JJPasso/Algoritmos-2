@@ -10,15 +10,14 @@ public abstract class Propiedad {
 	protected Lugar ll;
 	protected Estado es;
 	protected Vigilancia v;
-	public abstract int importeInmobiliara();
-	public abstract int importeDueño();
+	protected int valor;
 	public Propiedad(String n,int ai,Lugar ll,Estado es,Vigilancia v){
 		nombrepropietario = n;
 		idAgenteinmobiliario = ai;
 		this.ll = ll;
 		this.es = es;
 		this.v = v;
-		
+		valor = 0;
 		
 		
 	}

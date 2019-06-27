@@ -6,9 +6,7 @@ public class Hamburguesa extends Comida{
 		this.importe = p;
 		
 	}
-	public int Obtenerimporte() {
-		return importe;
-	}
+	
 	public void empaquetar() {
 		System.out.println("se empaqueto: "+ nombre);
 	}

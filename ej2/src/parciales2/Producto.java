@@ -10,7 +10,7 @@ public abstract class Producto implements Facturable{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public int Obtenermporte() {
+	public int Obtenerimporte() {
 		return importe;
 	}
 	public void setImporte(int importe) {

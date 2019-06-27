@@ -9,15 +9,14 @@ public class Main {
 		Pedido p1 = new Pedido();
 		Pedido p2 = new Pedido();
 		PedidoaDomicilio p3 = new PedidoaDomicilio("Av de Mayo");
-		Hamburguesa h = new Hamburguesa(12);
-		CocaCola cc = new CocaCola(6);
+		Facturable h = new Hamburguesa(12);
+		Facturable cc = new CocaCola(6);
 		rest.InicializarMesas();
 		rest.abrirCuenta(c1);
 		p1.agregarProducto(h);
 		p1.agregarProducto(cc);
 		p2.agregarProducto(h);
 		p2.agregarProducto(cc);
-		h.empaquetar();
 		p3.agregarProducto(h);
 		try {
 			c1.Pedirmesa(rest.Buscarmesalibre());

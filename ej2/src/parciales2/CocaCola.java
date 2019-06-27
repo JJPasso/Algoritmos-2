@@ -5,7 +5,5 @@ public class CocaCola extends Bebida{
 		nombre="Coca cola";
 		importe = p;
 	}
-	public int Obtenerimporte() {
-		return importe;
-	}
+	
 }

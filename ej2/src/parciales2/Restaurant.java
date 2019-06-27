@@ -18,6 +18,8 @@ public class Restaurant {
 		Mesatotales.add(m1);
 		Mesatotales.add(m2);
 		Mesatotales.add(m3);
+		
+		
 	}
 	public void abrirCuenta(Cuenta c1) {
 		Cuentas.add(c1);
